@@ -152,7 +152,26 @@ server.tool("create-random-user","Create a random user with fake data",
       },CreateMessageResultSchema)
 
       if(res.content.type !== 'text'){
+        return{
+          content:[{type:"text",text:`Failed to get user data in text`}]
+        }
+      }
 
+      try {
+        const fakeUser = JSON.parse(
+          (res.content.text as string).trim()
+          .replace(/^```json/,"")
+          .replace(/```$/,"")
+        );
+
+        const id = await createUser(fakeUser);
+        return{
+          content:[{type:"text",text:`User ${id} created successful`}]
+        }
+      } catch (error) {
+        return{
+          content:[{type:"text",text:`Failed to generate user data`}]
+        }
       }
       
     } catch (error) {
