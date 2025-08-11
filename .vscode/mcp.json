@@ -4,7 +4,7 @@
 			"type": "stdio",
 			"command": "node",
 			"args": [
-				"dist/index.js"],
+				"build/server.js"],
 			"cwd": "${workspaceFolder}",
 			"dev": {
 				"watch": "src/**/*.js",
