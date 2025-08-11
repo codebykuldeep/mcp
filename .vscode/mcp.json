@@ -1,0 +1,18 @@
+{
+	"servers": {
+		"my-mcp-server-add-user": {
+			"type": "stdio",
+			"command": "node",
+			"args": [
+				"dist/index.js"],
+			"cwd": "${workspaceFolder}",
+			"dev": {
+				"watch": "src/**/*.js",
+				"debug": {
+					"type": "node"
+				}
+			}
+		}
+	},
+	"inputs": []
+}
